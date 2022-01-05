@@ -14,6 +14,7 @@ const helpers = require('./utils/helpers');
 
 //listening on this port allowing server to run
 const PORT = process.env.PORT || 3001;
+
 //require sequelize
 const sequelize = require('sequelize');
 
