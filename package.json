@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"**/*.{vue,ts,js}\""
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "sequelize": "^6.12.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "@nickgraffis/eslint-basic": "^1.0.13"
   }
 }
