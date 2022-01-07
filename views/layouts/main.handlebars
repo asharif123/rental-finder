@@ -22,7 +22,7 @@
         {{! Navbar Content }}
         <ul class="navbar-nav">
           <li class="nav-item px-4">
-            <a class="nav-link navbar-brand text-white" href="/">Home</a>
+            <a class="nav-link navbar-brand text-hulk-800" href="/">Home</a>
           </li>
         </ul>
       </div>
@@ -41,6 +41,19 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-
+    {{! Tailwind }}
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <script type="tailwind-config">
+    {
+        theme: {
+            extend: {
+                colors: {
+                    'dark-blue-800': '#0A214C',
+                    'hulk-800': '#3D42F5',
+                }
+            }
+        }
+    }
+    </script>
   </body>
 </html>
