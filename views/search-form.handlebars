@@ -1,0 +1,23 @@
+{{!-- Search Form --}}
+<section>
+    <p>AT SEARCH FORM</p>
+    <form class="search-form">
+        <label for="city_name"> City: </label>
+        <textarea name="city_name" id="city_name" cols="30" rows="10">{{city_name}}</textarea>
+        <br/>
+        {{!-- State --}}
+        <label for="state_name"> State: </label>
+        <textarea name="state_name" id="state_name" cols="30" rows="10">{{state_name}}</textarea>
+        <br/>
+        {{!-- Minimum Budget --}}
+        <label for="minimum_budget"> Minimum Price: </label>
+        <textarea name="minimum_budget" id="minimum_budget" cols="30" rows="10">{{minimum_budget}}</textarea>
+        <br/>
+        {{!-- Maximum Budget --}}
+        <label for="maximum_budget"> Maximum Price: </label>
+        <textarea name="maximum_budget" id="maximum_budget" cols="30" rows="10">{{maximum_budget}}</textarea>
+        <br/>
+        <button type="submit" value= "Submit">Search</button>
+    </form>
+    <script src="/js/search-post.js"></script>
+</section>
