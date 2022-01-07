@@ -11,7 +11,7 @@ Favorites.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    listing: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

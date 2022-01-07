@@ -1,24 +1,19 @@
 const { Favorites } = require('../models');
-const favRooms = require('../seeds/listings.json')
+const listing = require('../seeds/listings.json')
 
 const favoritesData = [
     {
     id: 1,
-    favRooms: JSON.stringify(favRooms)
+    listing: JSON.stringify(listing)
     },
     {
     id: 2,
-    favrooms:JSON.stringify(favRooms),
-    location: 'location of property',
-    url: 'photo url',
-    price:'cost of rental',
-    description: 'description of property'
+    listing:JSON.stringify(listing),
+
     },
     {
      id: 3,
-   location: 'location of property',
-   url: 'photo url',
-   price:'cost of rental',
+     listing: JSON.stringify(listing),
     }
 ];
 
