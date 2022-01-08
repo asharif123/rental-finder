@@ -41,6 +41,6 @@ const userdata = [
 
 ];
 
-const seedUsers = () => Painting.bulkCreate(userdata);
+const seedUsers = () => User.bulkCreate(userdata);
 
 module.exports = seedUsers;
