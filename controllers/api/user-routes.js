@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../../models');
+const {User} = require('../../models');
 
 //Get all users
 router.get('/', async (req, res) =>{
@@ -32,11 +32,9 @@ router.get('/:id', async (req, res) => {
 // CREATE new user
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-    });
+    const dbUserData = await User.create(
+      req.body
+    );
 
     req.session.save(() => {
       req.session.loggedIn = true;
