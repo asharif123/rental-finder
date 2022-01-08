@@ -46,12 +46,12 @@ const signupFormHandler = async (event) => {
   }
 };
 
-//login if user hits login form
+//login
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
-//signup if user hits signup form
+//signup
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
