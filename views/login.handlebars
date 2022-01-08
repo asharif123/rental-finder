@@ -2,20 +2,20 @@
   <div class="bg-[#4840FA] px-3 py-6 rounded-3xl">
     <div>
     </div>
-    <form class="space-y-6 sign-form">
+    <form class="space-y-6 signup-form">
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <label for="name" class="sr-only">Name</label>
+          <label for="name-signup" class="sr-only">Name</label>
           <input id="name-signup" name="name-signup" type="text" autocomplete="name" required class="px-3 py-2 rounded-xl sm:text-sm my-2" placeholder="Name">
         </div>
 
         <div>
-          <label for="email-address" class="sr-only">Email address</label>
+          <label for="email-signup" class="sr-only">Email address</label>
           <input id="email-signup" name="email-signup" type="email" autocomplete="email" required class="px-3 py-2 rounded-xl sm:text-sm my-2" placeholder="Email address">
         </div>
         <div>
-          <label for="password" class="sr-only">Password</label>
+          <label for="password-signup" class="sr-only">Password</label>
           <input id="password-signup" name="password-signup" type="password" autocomplete="current-password" required class="px-3 py-2 rounded-xl sm:text-sm my-2" placeholder="Password">
         </div>
       </div>
@@ -37,11 +37,11 @@
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <label for="email-address" class="sr-only">Email address</label>
+          <label for="email-login" class="sr-only">Email address</label>
           <input id="email-login" name="email-signup" type="email" autocomplete="email" required class="px-3 py-2 rounded-xl sm:text-sm my-2" placeholder="Email address">
         </div>
         <div>
-          <label for="password" class="sr-only">Password</label>
+          <label for="password-login" class="sr-only">Password</label>
           <input id="password-login" name="password-signup" type="password" autocomplete="current-password" required class="px-3 py-2 rounded-xl sm:text-sm my-2" placeholder="Password">
         </div>
       </div>
@@ -57,3 +57,5 @@
     </form>
   </div>
 </div>
+
+<script src="./js/login.js"></script>
