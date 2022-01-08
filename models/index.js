@@ -1,4 +1,15 @@
 // const Rental  = require("./Rental");
 const User = require("./User");
+const Favorites = require("./Favorites");
 
-// User.hasMany(Rental, {
+
+    User.hasMany(Favorites, {
+        foreignKey: 'user_id'
+    });
+
+    Favorites.belongsTo(User, {
+        foreignKey: 'user_id',
+        onDelete: 'casacade'
+    });
+
+module.exports ={ User, Favorites }; 
