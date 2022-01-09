@@ -7,7 +7,7 @@ router.get('/', async (req, res) =>{
     {
         const allUserData = await User.findAll({include:[{model:Favorites}]});
         res.status(200).json(allUserData);
-        
+
     }catch(err)
     {
         console.log(err);
@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-// CREATE new user
+// CREATE new user.
 router.post('/', async (req, res) => {
   //example post body..
   /*
