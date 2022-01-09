@@ -1,23 +1,20 @@
 {{!-- Search Form --}}
-<section>
-    <p>AT SEARCH FORM</p>
+<section class= "d-flex py-5 justify-content-center">
     <form class="search-form">
-        <label for="city_name"> City: </label>
-        <textarea name="city_name" id="city_name" cols="30" rows="10">{{city_name}}</textarea>
+        <input name="city_name" placeholder="City" class="form-control" id="city_name">{{city_name}}</textarea>
         <br/>
-        {{!-- State --}}
-        <label for="state_name"> State: </label>
-        <textarea name="state_name" id="state_name" cols="30" rows="10">{{state_name}}</textarea>
+        <input name="state_name" placeholder="State" class="form-control" id="state_name">{{state_name}}</textarea>
         <br/>
-        {{!-- Minimum Budget --}}
-        <label for="minimum_budget"> Minimum Price: </label>
-        <textarea name="minimum_budget" id="minimum_budget" cols="30" rows="10">{{minimum_budget}}</textarea>
+        <div class="row">
+            <div class="col">
+        <input name="minimum_budget" placeholder="Minimum Price" class="form-control" id="minimum_budget">{{minimum_budget}}</textarea>       
+            </div>
+            <div class="col">
+        <input name="maximum_budget" placeholder= "Maximum Price" class="form-control" id="maximum_budget">{{maximum_budget}}</textarea>
+            </div>
+        </div>
         <br/>
-        {{!-- Maximum Budget --}}
-        <label for="maximum_budget"> Maximum Price: </label>
-        <textarea name="maximum_budget" id="maximum_budget" cols="30" rows="10">{{maximum_budget}}</textarea>
-        <br/>
-        <button type="submit" value= "Submit">Search</button>
+        <button type="submit" class= "btn btn-dark active w-100" value= "Submit">Search</button>
     </form>
     <script src="/js/search-post.js"></script>
 </section>
