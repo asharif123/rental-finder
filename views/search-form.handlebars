@@ -1,5 +1,20 @@
+<div class="row py-5 px-5">
+    {{!-- Recently Searched Cities --}}
+    <aside class="col-12 col-md-4 col-xl-2 text-center">
+        <h3 class="h4">Previous Cities</h3>
+        <ul class="list-group">
+        {{#each previousSearches}}
+            <li class="list-group-item">
+                <a href="/results/{{id}}">
+                {{city_name}}
+                </a>                
+            </li>
+        {{/each}}
+        </ul>
+    </aside>
+
 {{!-- Search Form --}}
-<section class= "d-flex py-5 justify-content-center">
+ <section class= "d-flex py-5 justify-content-center align-items-center col-12 col-md-8 col-xl-7">
     <form class="search-form">
         <input name="city_name" placeholder="City" class="form-control" id="city_name">{{city_name}}</textarea>
         <br/>
@@ -17,4 +32,5 @@
         <button type="submit" class= "btn btn-dark active w-100" value= "Submit">Search</button>
     </form>
     <script src="/js/search-post.js"></script>
-</section>
+ </section>
+</div>

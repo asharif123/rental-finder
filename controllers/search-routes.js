@@ -3,7 +3,12 @@ const router = require('express').Router();
 
 // Search Form Routes
 router.get("/", async (req, res) => {
-    res.render("search-form");
+    // res.render("search-form");
+    const metaResultsData = await Searches.findAll().catch((err) => {
+      res.json(err);
+    });
+    const previousSearches = metaResultsData.map((search) => search.get({ plain: true }));
+    res.render("search-form", { previousSearches });
 });
 
 router.post("/", async (req, res) => {
