@@ -7,7 +7,9 @@
     "tailwind": "npx tailwindcss -i ./public/styles.css -o ./public/styles_output.css --watch",
     "dev": "concurrently \"npx tailwindcss -i ./public/styles.css -o ./public/styles_output.css --watch\" \"nodemon server.js\"",
     "test": "nodemon server.js",
-    "lint": "eslint \"**/*.{vue,ts,js}\""
+    "lint": "eslint \"**/*.{vue,ts,js}\"",
+    "seed": "node seeds/index.js"
+
   },
   "keywords": [],
   "author": "",

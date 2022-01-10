@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const {User, Favorites} = require('../../models');
 
+//all routes use '/users'
+
 //Get all users
 router.get('/', async (req, res) =>{
     try
@@ -111,6 +113,12 @@ router.put('/:id', async (req, res) => {
             },
         });
 
+        if (!updatedUser) 
+        {
+            res.status(404).json({ message: 'No user found with that id!' });
+            return;
+        }
+
         console.log(`User ${req.params.id} Has Been Successfully Updated!`);
         res.status(204).send(`User ${req.params.id} Has Been Successfully Updated!`);
 
@@ -131,8 +139,12 @@ router.delete('/:id', async (req, res) => {
             },
         });
 
-        console.log(`User ${req.params.id} Has Been Successfully Deleted!`);
-        res.status(204).json(deletedUser);
+        if(!deletedUser)
+        {
+          res.status(404).json({message:'No user with that id found!!'});
+        }
+
+        res.status(204).send({message: `User ${req.params.id} Has Been Successfully Deleted!`});
 
     }catch(err)
     {
