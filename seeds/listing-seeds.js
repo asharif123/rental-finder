@@ -1,5 +1,5 @@
 const { Favorites } = require('../models');
-const listing = require('../seeds/listings.json')
+const listing = require('../seeds/listing.json')
 const favoritesData = [
     {
     id: 1,
@@ -26,6 +26,6 @@ const favoritesData = [
     listing: JSON.stringify(listing),
      },
 ];
-const seedFavorites = () => User.bulkCreate(favoritesData);
+const seedFavorites = () => Favorites.bulkCreate(favoritesData);
 
 module.exports = seedFavorites;
