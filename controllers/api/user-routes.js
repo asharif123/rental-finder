@@ -5,7 +5,6 @@ const {User, Favorites} = require('../../models');
 
 // Login
 router.post('/login', async (req, res) => {
-  console.log("START LOGIN")
   try
   {
     const dbUserData = await User.findOne({
@@ -34,7 +33,6 @@ router.post('/login', async (req, res) => {
       req.session.loggedIn = true;
       res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
     });
-    console.log("ENDING LOGIN")
 
   }catch (err)
   {
@@ -46,7 +44,6 @@ router.post('/login', async (req, res) => {
 //logout (if anything else, go to find users route)
 
 router.get('/logout', async (req, res) => {
-  console.log("LOGGING OUT!");
   if (req.session.loggedIn) {
     await req.session.destroy( () => res.status(200).end())
   }
