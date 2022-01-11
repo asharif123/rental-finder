@@ -1,6 +1,7 @@
 // const Rental  = require("./Rental");
 const User = require("./User");
 const Favorites = require("./Favorites");
+const Search = require("./Searches");
 
 
     User.hasMany(Favorites, {
@@ -13,4 +14,4 @@ const Favorites = require("./Favorites");
 
     });
 
-module.exports ={ User, Favorites }; 
+module.exports ={ User, Favorites, Search }; 
