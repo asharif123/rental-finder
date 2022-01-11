@@ -4,21 +4,26 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
     const emailLogin = document.querySelector("#email-login").value.trim();
     const passwordLogin = document.querySelector("#password-login").value.trim();
-
+    console.log("LOGGED IN!")
     if (emailLogin && passwordLogin) {
         const response = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({ emailLogin, passwordLogin }),
         headers: { 'Content-Type': 'application/json' },
         });
-
-        if (response.ok) {
-        document.location.replace('/');
-        } 
+        //give time before obtaining response and 
+        setTimeout(() => {
+          console.log(response)
+          if (response.ok) {
+            document.location.replace('/search');
+          } 
         
-        else {
-        alert('Failed to log in.');
-        }
+          else {
+            alert('Failed to log in.');
+          }
+
+          
+        }, 1000);
     }
 }
 
