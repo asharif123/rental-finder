@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Favorites} = require('../../models');
+const {User, Favorites, Search} = require('../../models');
 
 //all routes use '/users'
 
@@ -59,7 +59,7 @@ router.get('/logout', async (req, res) => {
 router.get('/', async (req, res) =>{
     try
     {
-        const allUserData = await User.findAll({include:[{model:Favorites}]});
+        const allUserData = await User.findAll({include:[{model:Favorites}, {model:Search}]});
         res.status(200).json(allUserData);
 
     }catch(err)
@@ -73,7 +73,7 @@ router.get('/', async (req, res) =>{
 router.get('/:id', async (req, res) => {
     try
     {
-        const userData = await User.findByPk(req.params.id, {include: [{model: Favorites}]});
+        const userData = await User.findByPk(req.params.id, {include: [{model:Favorites}, {model:Search}]});
 
         if (!userData) 
         {

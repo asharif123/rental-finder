@@ -47,7 +47,8 @@ router.post('/', async (req, res) => {
           "city_name": 'Irvine',    
           "state_name": 'CA',    
           "minimum_budget": 500,    
-          "maximum_budget": 1200
+          "maximum_budget": 1200,
+          "user_id": 1
       }
   */
     try
