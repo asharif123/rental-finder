@@ -14,4 +14,14 @@ const Search = require("./Searches");
 
     });
 
+    User.hasMany(Search, {
+        foreignKey: 'user_id',
+        onDelete: 'CASCADE'
+    });
+
+    Search.belongsTo(User, {
+        foreignKey: 'user_id'  
+
+    });
+
 module.exports ={ User, Favorites, Search }; 
