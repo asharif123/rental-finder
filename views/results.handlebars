@@ -1,26 +1,22 @@
 {{! Renders results main page }}
 <section class="d-flex row justify-content-center card-container">
-  {{#each images}}
+    {{!-- {{#each data}} --}}
+    {{!-- {{#log data}}{{/log}} --}}
   <div class="rounded col-12 col-xl-3 col-md-5 p-5">
-    <div class="card h-100">
-      {{! ADD IMAGE SRC }}
-      
-        <img src={{this}} class="min-w-100 card-img-top" alt="..." />
-      
+    <div class="card h-100">      
+        <img src={{#images data}}{{/images}} class="min-w-100 card-img-top" alt="..." />      
       <div class="card-body d-flex flex-column">
         <h5 class="card-header text-center address my-6">
-          {{! ADD ADDRESS LINK }}
-          {{address}}
-
+          {{#address data}}{{/address}}
         </h5>
         <p class="card-text text-center my-3">
-          {{! ADD MONTHLY RATE }}
-          {{monthly_rate}}
+          {{#monthly_rate data}}{{/monthly_rate}}
         </p>
         {{!-- ADD HREF {{id}}  AND/OR  id = {{id}}  --}}
         <a href="" class="btn btn-dark mt-auto w-100 myButton" id="${i}">View Photos</a>
       </div>
     </div>
   </div>
-  {{/each}}
+    {{!-- {{/each}} --}}
+ 
 </section>

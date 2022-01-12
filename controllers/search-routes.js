@@ -3,6 +3,7 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth.js');
 //axios - library for making http requests in node env (serverside)
 const axios = require("axios");
+const Results = require('../models/Results');
 // Search Form Routes
 router.get("/", withAuth, async (req, res) => {
     // res.render("search-form");
@@ -44,6 +45,15 @@ router.post("/", withAuth, async (req, res) => {
                             "&search_params.include_total_count=true&search_params.is_cache_loaded=false";
     const rooms = await axios.get(roomsterAPI)
     console.log("**************************", rooms["data"]["items"])
+
+    try {
+      const resultsData = await Results.create({        
+        listing: rooms["data"]["items"]
+      });
+      res.status(200).json(resultsData);
+    } catch (err) {
+      res.status(400).json(err);
+    }
 
     res.render('results', {
        rooms: rooms["data"]["items"]
