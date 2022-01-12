@@ -16,7 +16,7 @@ const sess = {
     secret: 'Super secret secret',
     //destroys cookie after sometime
     cookie: {
-      maxAge: 86400,
+      maxAge: 886400,
     },
     resave: false,
     saveUninitialized: true,
