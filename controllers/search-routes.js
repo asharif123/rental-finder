@@ -6,7 +6,11 @@ const axios = require("axios");
 // Search Form Routes
 router.get("/", withAuth, async (req, res) => {
     // res.render("search-form");
-    const metaResultsData = await Searches.findAll().catch((err) => {
+    const metaResultsData = await Searches.findAll({
+      limit: 10,
+      order: [ [ 'createdAt', 'DESC']],
+    }).catch((err) => {
+      
       res.json(err);
     });
     const previousSearches = metaResultsData.map((search) => search.get({ plain: true }));
