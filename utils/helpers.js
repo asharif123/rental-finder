@@ -2,7 +2,7 @@ module.exports = {
     log: function(foo) {
         // where the actual data is
         // console.log(foo[0].listing[0].listing);
-        console.log(foo[0].listing[0].listing.images[0]);
+        console.log(foo[1]);
         },
         
     address: function(data) {

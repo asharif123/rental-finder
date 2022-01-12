@@ -1,22 +1,22 @@
 {{! Renders results main page }}
 <section class="d-flex row justify-content-center card-container">
-    {{!-- {{#each data}} --}}
-    {{!-- {{#log data}}{{/log}} --}}
+    {{#each data}}
+          {{#each this.listing}}
   <div class="rounded col-12 col-xl-3 col-md-5 p-5">
     <div class="card h-100">      
-        <img src={{#images data}}{{/images}} class="min-w-100 card-img-top" alt="..." />      
+        <img src= {{this.listing.images.[0]}} class="min-w-100 card-img-top" alt="" />      
       <div class="card-body d-flex flex-column">
         <h5 class="card-header text-center address my-6">
-          {{#address data}}{{/address}}
+          {{this.listing.geo_location.full_address}}
         </h5>
         <p class="card-text text-center my-3">
-          {{#monthly_rate data}}{{/monthly_rate}}
+          {{this.listing.rates.monthly_rate}}
         </p>
         {{!-- ADD HREF {{id}}  AND/OR  id = {{id}}  --}}
         <a href="" class="btn btn-dark mt-auto w-100 myButton" id="${i}">View Photos</a>
       </div>
     </div>
   </div>
-    {{!-- {{/each}} --}}
- 
+    {{/each}}
+           {{/each}}
 </section>
