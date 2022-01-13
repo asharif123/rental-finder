@@ -42,12 +42,18 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({name, email, password}),
       headers: { 'Content-Type': 'application/json' },
     });
+    setTimeout(() => {
+      console.log(response)
+      if (response.ok) {
+        document.location.replace('/search');
+      } 
+    
+      else {
+        alert('Failed to log in.');
+      }
+    }, 1000);
 
-    if (response.ok) {
-      document.location.replace('/search');
-    } else {
-      alert('Failed to sign up.');
-    }
+
   }
 };
 

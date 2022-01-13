@@ -72,26 +72,18 @@ router.post("/", withAuth, async (req, res) => {
         monthly_rate: rooms.data.items[i].listing.rates.monthly_rate,
         image: rooms.data.items[i].listing.images[0],
       })
-
     }
+    res.status(200).json("SUCCESS!");
+
+  } catch (err)
+  {
+    console.log("ERROR!", err)
+    res.status(500).json(err)
+  }
+})
 
 
-    try {
-      const resultsData = await Results.create({        
-        listing: rooms["data"]["items"]
-      });
-      res.status(200).json(resultsData);
-    } catch (err) {
-      res.status(400).json(err);
-    }
+    
 
-    res.render('results', {
-       rooms: rooms["data"]["items"]
-    });
-    } catch (err) {
-      console.log(err)
-      res.status(400).json(err);
-    }
-  });
 
 module.exports = router;
