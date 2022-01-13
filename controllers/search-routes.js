@@ -44,7 +44,37 @@ router.post("/", withAuth, async (req, res) => {
                             response.data["results"][0]["geometry"]["bounds"]["northeast"].lng +
                             "&search_params.include_total_count=true&search_params.is_cache_loaded=false";
     const rooms = await axios.get(roomsterAPI)
-    console.log("**************************", rooms["data"]["items"])
+    // console.log("**************************", rooms["data"]["items"])
+
+    // 
+    for(let i = 0; i < rooms.data.items.length; i++)
+    {
+      // amount of different listings found
+      console.log(rooms.data.items.length)
+
+      // each listing
+      // console.log(rooms.data.items[i])
+
+      // listing details
+      // console.log(rooms.data.items[i].listing);
+
+      // address
+      // console.log(rooms.data.items[i].listing.geo_location.full_address);
+
+      // monthly rate
+      // console.log(rooms.data.items[i].listing.rates.monthly_rate);
+
+      // image for card
+      // console.log(rooms.data.items[i].listing.images[0])
+
+      const results = await Results.create({
+        address: rooms.data.items[i].listing.geo_location.full_address,
+        monthly_rate: rooms.data.items[i].listing.rates.monthly_rate,
+        image: rooms.data.items[i].listing.images[0],
+      })
+
+    }
+
 
     try {
       const resultsData = await Results.create({        

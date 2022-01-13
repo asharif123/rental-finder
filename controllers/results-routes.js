@@ -6,7 +6,8 @@ const withAuth = require('../utils/auth.js');
 // Results end point    
 router.get("/", withAuth, async (req, res) => {
     const metaResultsData = await Results.findAll({
-        limit: 10,
+        limit: 15,
+        order: [['updatedAt', 'DESC']]
     }).catch((err)  => {
         res.json(err);
     });
