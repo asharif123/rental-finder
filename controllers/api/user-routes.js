@@ -5,7 +5,7 @@ const {User, Favorites, Search} = require('../../models');
 
 // Login
 router.post('/login', async (req, res) => {
-  try
+  try 
   {
     const dbUserData = await User.findOne({
       where: {
