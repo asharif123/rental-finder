@@ -1,7 +1,6 @@
 const Results = require('../models/Results');
 const router = require('express').Router();
 const withAuth = require('../utils/auth.js');
-// const axios = require("axios");
 
 // Results end point    
 router.get("/", withAuth, async (req, res) => {
@@ -12,13 +11,12 @@ router.get("/", withAuth, async (req, res) => {
         res.json(err);
     });
     const result = metaResultsData.map((results) => results.get({ plain: true}));
-    res.render("results", { result } );
+    res.render("results", { result, loggedIn: req.session.loggedIn } );
 });
 
 router.get("/:id", async (req, res) => {
     try {
         const property = await Results.findByPk(req.params.id);
-        // const property = metaResultsData.get({  plain: true });
         res.render("results", { property });
         console.log(property)
     } catch (err) {
