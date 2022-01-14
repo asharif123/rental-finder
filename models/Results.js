@@ -18,7 +18,10 @@ Results.init(
       },
       image: {
         type: DataTypes.STRING,
-      },     
+      },    
+      gallery: {
+        type: DataTypes.JSON,
+      }, 
    },
    {
     sequelize,
