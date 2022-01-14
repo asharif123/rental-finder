@@ -17,7 +17,7 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const property = await Results.findByPk(req.params.id);
-        res.render("results", { property });
+        res.render("results", { property, loggedIn: req.session.loggedIn });
         console.log(property)
     } catch (err) {
         res.status(500).json(err);
