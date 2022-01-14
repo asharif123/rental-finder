@@ -20,6 +20,7 @@ router.get("/:id", async (req, res) => {
         const property = await Results.findByPk(req.params.id);
         // const property = metaResultsData.get({  plain: true });
         res.render("results", { property });
+        console.log(property)
     } catch (err) {
         res.status(500).json(err);
     }

@@ -4,19 +4,6 @@ const withAuth = require('../utils/auth.js');
 //axios - library for making http requests in node env (serverside)
 const axios = require("axios");
 const Results = require('../models/Results');
-// Search Form Routes
-router.get("/", withAuth, async (req, res) => {
-    // res.render("search-form");
-    const metaResultsData = await Searches.findAll({
-      limit: 10,
-      order: [ [ 'createdAt', 'DESC']],
-    }).catch((err) => {
-      
-      res.json(err);
-    });
-    const previousSearches = metaResultsData.map((search) => search.get({ plain: true }));
-    res.render("search-form", { previousSearches, loggedIn: req.session.loggedIn });
-});
 
 router.post("/", withAuth, async (req, res) => {
     try {
@@ -66,7 +53,7 @@ router.post("/", withAuth, async (req, res) => {
 
       // image for card
       // console.log(rooms.data.items[i].listing.images[0])
-
+//OR maybe don't allow dupes when inserting into db
       const results = await Results.create({
         address: rooms.data.items[i].listing.geo_location.full_address,
         monthly_rate: rooms.data.items[i].listing.rates.monthly_rate,
@@ -81,6 +68,22 @@ router.post("/", withAuth, async (req, res) => {
     res.status(500).json(err)
   }
 })
+
+// Search Form Routes
+router.get("/", withAuth, async (req, res) => {
+  // res.render("search-form");
+  const metaResultsData = await Searches.findAll({
+    limit: 10,
+    order: [ [ 'createdAt', 'DESC']],
+  }).catch((err) => {
+    
+    res.json(err);
+  });
+  const previousSearches = metaResultsData.map((search) => search.get({ plain: true }));
+  //dedupe here
+  res.render("search-form", { previousSearches, loggedIn: req.session.loggedIn });
+});
+
 
 
     
