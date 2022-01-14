@@ -31,10 +31,12 @@ router.post("/", withAuth, async (req, res) => {
 
     for(let i = 0; i < rooms.data.items.length; i++)
     {
+      // console.log(rooms.data.items[i].listing.images);
       const results = await Results.create({
         address: rooms.data.items[i].listing.geo_location.full_address,
         monthly_rate: rooms.data.items[i].listing.rates.monthly_rate,
         image: rooms.data.items[i].listing.images[0],
+        gallery: rooms.data.items[i].listing.images
       });
     }
     res.status(200).json("SUCCESS!");
