@@ -3,11 +3,13 @@
     <aside class="col-12 col-md-4 col-xl-2 text-center">
         <h3 class="h4">Previous Cities</h3>
         <ul class="list-group">
+            <button class= "btn">
         {{#each previousSearches}}
             <li data-maximum_budget={{maximum_budget}} data-city_name={{city_name}} data-state_name={{state_name}} data-minimum_budget={{minimum_budget}} class="list-group-item search-history-btn">
                 {{city_name}}   
             </li>
         {{/each}}
+            </button>
         </ul>
     </aside>
 

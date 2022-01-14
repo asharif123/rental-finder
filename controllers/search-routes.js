@@ -1,7 +1,6 @@
 const Searches = require('../models/Searches');
 const router = require('express').Router();
 const withAuth = require('../utils/auth.js');
-//axios - library for making http requests in node env (serverside)
 const axios = require("axios");
 const Results = require('../models/Results');
 
@@ -13,8 +12,6 @@ router.post("/", withAuth, async (req, res) => {
         minimum_budget: req.body.minimum_budget,
         maximum_budget: req.body.maximum_budget,
       });
-
-      //hit up google api to geocode
 
     const GoogleAPIURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + req.body.city_name + "," + req.body.state_name + "&key=" + process.env.googleAPIKEY;
     // console.log(GoogleAPIURL);
@@ -31,34 +28,14 @@ router.post("/", withAuth, async (req, res) => {
                             response.data["results"][0]["geometry"]["bounds"]["northeast"].lng +
                             "&search_params.include_total_count=true&search_params.is_cache_loaded=false";
     const rooms = await axios.get(roomsterAPI)
-    // console.log("**************************", rooms["data"]["items"])
 
-    // 
     for(let i = 0; i < rooms.data.items.length; i++)
     {
-      // amount of different listings found
-      console.log(rooms.data.items.length)
-
-      // each listing
-      // console.log(rooms.data.items[i])
-
-      // listing details
-      // console.log(rooms.data.items[i].listing);
-
-      // address
-      // console.log(rooms.data.items[i].listing.geo_location.full_address);
-
-      // monthly rate
-      // console.log(rooms.data.items[i].listing.rates.monthly_rate);
-
-      // image for card
-      // console.log(rooms.data.items[i].listing.images[0])
-//OR maybe don't allow dupes when inserting into db
       const results = await Results.create({
         address: rooms.data.items[i].listing.geo_location.full_address,
         monthly_rate: rooms.data.items[i].listing.rates.monthly_rate,
         image: rooms.data.items[i].listing.images[0],
-      })
+      });
     }
     res.status(200).json("SUCCESS!");
 
@@ -71,22 +48,14 @@ router.post("/", withAuth, async (req, res) => {
 
 // Search Form Routes
 router.get("/", withAuth, async (req, res) => {
-  // res.render("search-form");
   const metaResultsData = await Searches.findAll({
     limit: 10,
     order: [ [ 'createdAt', 'DESC']],
-  }).catch((err) => {
-    
+  }).catch((err) => {    
     res.json(err);
   });
   const previousSearches = metaResultsData.map((search) => search.get({ plain: true }));
-  //dedupe here
   res.render("search-form", { previousSearches, loggedIn: req.session.loggedIn });
 });
-
-
-
-    
-
 
 module.exports = router;

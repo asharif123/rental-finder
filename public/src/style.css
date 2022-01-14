@@ -11,5 +11,7 @@
     font-size: 100%;
   }
 
-/* .handlebars-container {    background image} */
+  li, a {
+    cursor: pointer;
+  }
 
