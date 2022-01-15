@@ -14,13 +14,11 @@ body{
     font-size: 100%;
   }
 
-  li, a {
+  .login-logout {
     cursor: pointer;
   }
 
   .searchContainer {
     background-image: url('../images/searchbg.jpg'); 
     background-position: 35% 50%;
-    
-
   }
