@@ -1,69 +1,36 @@
-<div class="mainContainer row py-5 px-5 ">
+<div class=" searchContainer row py-5 px-5">
     {{!-- Recently Searched Cities --}}
-    <aside class=" col-12 col-md-4 col-xl-2 text-center">
+    <aside class="col-12 col-md-4 col-xl-2 text-center">
         <h3 class="h4 text-white">Previous Cities</h3>
         <ul class="list-group">
-            {{#each previousSearches}}
+        {{#each previousSearches}}
             <button>
-                <li data-maximum_budget={{maximum_budget}} data-city_name={{city_name}} data-state_name={{state_name}}
-                    data-minimum_budget={{minimum_budget}} class="list-group-item search-history-btn">
-                    {{city_name}}
-                </li>
+            <li data-maximum_budget={{maximum_budget}} data-city_name={{city_name}} data-state_name={{state_name}} data-minimum_budget={{minimum_budget}} class="list-group-item search-history-btn">
+                {{city_name}}   
+            </li>
             </button>
-            {{/each}}
+        {{/each}}
         </ul>
     </aside>
 
-    {{!-- Search Form --}}
-    <section class=" d-flex py-5 justify-content-center align-items-center col-12 col-md-8 col-xl-7">
-        <form class="search-form">
-            <input name="city_name" placeholder="City" class="form-control" id="city_name">{{city_name}}</textarea>
-            <br />
-            <input name="state_name" placeholder="State" class="form-control" id="state_name">{{state_name}}</textarea>
-            <br />
-            <div class="row">
-                <div class="col">
-                    <input name="minimum_budget" placeholder="Minimum Price" class="form-control"
-                        id="minimum_budget">{{minimum_budget}}</textarea>
-                </div>
-                <div class="col">
-                    <input name="maximum_budget" placeholder="Maximum Price" class="form-control"
-                        id="maximum_budget">{{maximum_budget}}</textarea>
-                </div>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-dark active w-100" value="Submit">Search</button>
-        </form>
-        <script src="/js/search-post.js"></script>
-    </section>
-    <div class="footer" <div class="footer" <section class="mb-4 p-3 min-vh-100 bg-secondary contact-page">
-
-        <h2 class="h1-responsive font-weight-bold text-center my-4 text-white">Contact us</h2>
-        <p class="text-center w-responsive mx-auto mb-5 text-white">Do you have any questions? Please do not hesitate to
-            contact us directly. Our team will come back to you within
-            a matter of hours to help you.</p>
-
+{{!-- Search Form --}}
+ <section class= "d-flex py-5 justify-content-center align-items-center col-12 col-md-8 col-xl-7">
+    <form class="search-form">
+        <input name="city_name" placeholder="City" class="form-control" id="city_name">{{city_name}}</textarea>
+        <br/>
+        <input name="state_name" placeholder="State" class="form-control" id="state_name">{{state_name}}</textarea>
+        <br/>
         <div class="row">
-            <div class="d-flex flex-column col-md-12 min-h-100 text-center text-white">
-                <ul class="list-unstyled mb-0 contact-name">
-                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                        <p>Braulio Mora</p>
-                    </li>
-
-                    <li><i class="fas fa-map-marker-alt fa-2x contact-name"></i>
-                        <p>Mason Newell</p>
-                    </li>
-
-                    <li><i class="fas fa-map-marker-alt fa-2x contact-name"></i>
-                        <p>Delmy Elias</p>
-                    </li>
-
-                    <li><i class="fas fa-map-marker-alt fa-2x contact-name"></i>
-                        <p>Awad Sharif - awadsharif9@gmail.com</p>
-                    </li>
-                </ul>
+            <div class="col">
+        <input name="minimum_budget" placeholder="Minimum Price" class="form-control" id="minimum_budget">{{minimum_budget}}</textarea>       
+            </div>
+            <div class="col">
+        <input name="maximum_budget" placeholder= "Maximum Price" class="form-control" id="maximum_budget">{{maximum_budget}}</textarea>
             </div>
         </div>
-        </section>
-        </body>
-    </div>
+        <br/>
+        <button type="submit" class= "btn btn-dark active w-100" value= "Submit">Search</button>
+    </form>
+    <script src="/js/search-post.js"></script>
+ </section>
+</div>
