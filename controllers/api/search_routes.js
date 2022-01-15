@@ -41,16 +41,6 @@ router.get('/:id', async (req, res) => {
 
 //Create Search
 router.post('/', async (req, res) => {
-//example post body..
-  /*
-      {
-          "city_name": 'Irvine',    
-          "state_name": 'CA',    
-          "minimum_budget": 500,    
-          "maximum_budget": 1200,
-          "user_id": 1
-      }
-  */
     try
     {
         const newSearch = await Search.create(req.body);

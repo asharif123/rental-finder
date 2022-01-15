@@ -93,14 +93,6 @@ router.get('/:id', async (req, res) => {
 // CREATE new user.
 router.post('/', async (req, res) => {
 
-  //example post body..
-  /*
-      {
-          "name": "Jane",
-          "email": "Doe",
-          "password": "JaneDonuts"
-      }
-  */
   try 
   {
     const dbUserData = await User.create(req.body);

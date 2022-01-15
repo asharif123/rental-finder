@@ -41,13 +41,6 @@ router.get('/:id', async (req, res) => {
 
 //Create Favorite
 router.post('/', async (req, res) => {
-//example post body..
-  /*
-      {
-          "listing": '{}',    //listing data from roomsters api
-          "user_id": 1
-      }
-  */
     try
     {
         const newFavorite = await Favorites.create(req.body);
