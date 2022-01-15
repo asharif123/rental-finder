@@ -41,15 +41,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
-//logout (if anything else, go to find users route)
-
 router.get('/logout', async (req, res) => {
   if (req.session.loggedIn) {
     await req.session.destroy( () => res.status(200).end())
   }
   else {
-    //user error message
-    //.end() ends the connection
     res.status(400).end()
   }
 })
@@ -93,14 +89,6 @@ router.get('/:id', async (req, res) => {
 // CREATE new user.
 router.post('/', async (req, res) => {
 
-  //example post body..
-  /*
-      {
-          "name": "Jane",
-          "email": "Doe",
-          "password": "JaneDonuts"
-      }
-  */
   try 
   {
     const dbUserData = await User.create(req.body);

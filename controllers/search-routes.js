@@ -14,7 +14,6 @@ router.post("/", withAuth, async (req, res) => {
       });
 
     const GoogleAPIURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + req.body.city_name + "," + req.body.state_name + "&key=" + process.env.googleAPIKEY;
-    // console.log(GoogleAPIURL);
     const response = await axios.get(GoogleAPIURL)
     const roomsterAPI = 'https://www.roomster.com/api/search?search_params.page_number=1&search_params.service_type=HaveShare&search_params.sort=LastActivity&search_params.budget.min=' + req.body.minimum_budget + 
                             '&search_params.budget.max=' + req.body.maximum_budget +
@@ -31,7 +30,6 @@ router.post("/", withAuth, async (req, res) => {
 
     for(let i = 0; i < rooms.data.items.length; i++)
     {
-      // console.log(rooms.data.items[i].listing.images);
       const results = await Results.create({
         address: rooms.data.items[i].listing.geo_location.full_address,
         monthly_rate: rooms.data.items[i].listing.rates.monthly_rate,
