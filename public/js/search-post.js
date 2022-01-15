@@ -4,7 +4,7 @@ async function formHandler(event, searchObj = {} ) {
     const state_name = searchObj.state_name || document.querySelector("#state_name").value;
     const minimum_budget = searchObj.minimum_budget || document.querySelector("#minimum_budget").value;
     const maximum_budget = searchObj.maximum_budget || document.querySelector("#maximum_budget").value;
-// Add new search
+
 const response = await fetch (`/search`, {
     method: "POST",
     body: JSON.stringify({

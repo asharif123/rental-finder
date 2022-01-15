@@ -11,7 +11,6 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ emailLogin, passwordLogin }),
         headers: { 'Content-Type': 'application/json' },
         });
-        //give time before obtaining response and 
         setTimeout(() => {
           console.log(response)
           if (response.ok) {

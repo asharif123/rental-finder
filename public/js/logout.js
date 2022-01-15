@@ -8,5 +8,4 @@ const logout = async () => {
   }
 };
 
-//addeventlistener if the queryselector exists
 document.querySelector('#logout')?.addEventListener('click', logout);
